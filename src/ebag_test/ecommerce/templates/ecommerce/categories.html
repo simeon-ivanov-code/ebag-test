@@ -1,0 +1,13 @@
+{% extends 'ecommerce/base.html' %}
+
+{% block head %}
+    <title>Categories</title>
+{% endblock head %}
+
+{% block body %}
+    <h1>Index</h1>
+
+    <a href="{% url 'category_create' %}">Create category</a><br>
+
+    {% include 'ecommerce/sub_categories.html' %}
+{% endblock body %}

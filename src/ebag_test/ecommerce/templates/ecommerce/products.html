@@ -1,0 +1,9 @@
+{% if category %}
+    <br>
+    <a href="{% url 'product_create' category.id %}">Create product</a>
+    <br>
+    <br>
+{% endif %}
+{% for product in products %}
+    <a href="{% url 'product' product.id %}">{{ product.title }}</a><br>
+{% endfor %}

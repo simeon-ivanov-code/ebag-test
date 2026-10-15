@@ -1,0 +1,15 @@
+{% extends 'ecommerce/base.html' %}
+
+{% block head %}
+    <title>Create category</title>
+{% endblock head %}
+
+{% block body %}
+    <h1>Create category</h1>
+    <form action="" method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Save</button>
+        <button type="button" onclick="window.location = '{% url 'categories' %}'">Cancel</button>
+    </form>
+{% endblock body %}

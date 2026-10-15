@@ -1,0 +1,9 @@
+[project]
+name = "ebag-test"
+version = "0.1.0"
+description = "eBag test"
+requires-python = ">=3.13"
+dependencies = [
+    "django>=6.1.2",
+    "pillow>=12.3.0",
+]

@@ -1,0 +1,33 @@
+{% extends 'ecommerce/base.html' %}
+
+{% block head %}
+    <title>Product - {{ product.title }}</title>
+{% endblock head %}
+
+{% block body %}
+    <h1>{{ product.title }}</h1>
+
+    <a href="{% url 'category' product.category.id %}">Back to {{ product.category.name }}</a> |
+    <a href="{% url 'product_update' product.id %}">Update</a> |
+    <a href="{% url 'product_delete' product.id %}">Delete</a>
+
+    <ul>
+        {% if product.image %}
+        <li>
+            Image: <img src="{{ product.image.url }}">
+        </li>
+        {% endif %}
+        <li>
+            Category: <a href="{% url 'category' product.category.id %}">{{ product.category.name }}</a>
+        </li>
+        <li>
+            Product Number (SKU): {{ product.sku }}
+        </li>
+        <li>
+            Price: {{ product.price|floatformat:2 }}
+        </li>
+        <li>
+            Description: {{ product.description }}
+        </li>
+    </ul>
+{% endblock body %}

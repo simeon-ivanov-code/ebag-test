@@ -1,0 +1,18 @@
+{% extends 'ecommerce/base.html' %}
+
+{% block head %}
+    <title>Detete category</title>
+{% endblock head %}
+
+{% block body %}
+    <h1>Delete category {{ category.name }}</h1>
+    <h2>Are you sure you want to delete {{ category.name }} category?</h2>
+
+    Note that this will delete all sub categories and products in {{ category.name }}.
+
+    <form action="" method="POST">
+        {% csrf_token %}
+        <button type="submit">Delete</button>
+        <button type="button" onclick="window.location = '{% url 'category' category.id %}'">Cancel</button>
+    </form>
+{% endblock body %}

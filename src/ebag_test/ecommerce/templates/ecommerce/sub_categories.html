@@ -1,0 +1,10 @@
+{% if sub_categories %}
+    Categories:
+    <ul>
+        {% for category in sub_categories %}
+            <li>
+                <a href="{% url 'category' category.id %}">{{ category.name }}</a>
+            </li>    
+        {% endfor %}
+    </ul>
+{% endif %}

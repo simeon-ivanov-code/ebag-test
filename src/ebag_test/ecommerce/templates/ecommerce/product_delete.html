@@ -1,0 +1,16 @@
+{% extends 'ecommerce/base.html' %}
+
+{% block head %}
+    <title>Detete product</title>
+{% endblock head %}
+
+{% block body %}
+    <h1>Delete product {{ product.title }}</h1>
+    <h2>Are you sure you want to delete {{ product.title }} product?</h2>
+
+    <form action="" method="POST">
+        {% csrf_token %}
+        <button type="submit">Delete</button>
+        <button type="button" onclick="window.location = '{% url 'product' product.id %}'">Cancel</button>
+    </form>
+{% endblock body %}

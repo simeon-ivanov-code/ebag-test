@@ -1,0 +1,24 @@
+{% extends 'ecommerce/base.html' %}
+
+{% block head %}
+    <title>Category - {{ category.name }}</title>
+{% endblock head %}
+
+{% block body %}
+    <h1>
+        <a href="{% url 'categories' %}">Index</a>
+
+        {% for parent_category in parent_categories %}
+            / <a href="{% url 'category' parent_category.id %}">{{ parent_category.name }}</a>
+        {% endfor %}
+
+        / {{ category.name }}
+    </h1>
+
+    <a href="{% url 'category_create' %}">Create category</a> |
+    <a href="{% url 'category_update' category.id %}">Update</a> |
+    <a href="{% url 'category_delete' category.id %}">Delete</a><br>
+
+    {% include 'ecommerce/sub_categories.html' %}
+    {% include 'ecommerce/products.html' %}
+{% endblock body %}
